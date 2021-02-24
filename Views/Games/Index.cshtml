@@ -1,0 +1,14 @@
+﻿@using Arcade.Models
+@model Arcade.ViewModels.RandomGameViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var game in Model.Game)
+{
+    <li>
+        @game.Name
+    </li>
+}
+
+
