@@ -111,3 +111,7 @@ C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.PopulateMe
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.ApplzDataAnnotationsToCustomerName.resources
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.ApplyAnnotationsToMembershipType.resources
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddNameToMembershipType.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddBirthDateToCustomers.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.PopulateBirthDate.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddGameToIdentityModel.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddPropertiesToGame.resources

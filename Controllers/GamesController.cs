@@ -5,32 +5,48 @@ using System.Web;
 using System.Web.Mvc;
 using Arcade.Models;
 using Arcade.ViewModels;
+using System.Data.Entity;
 
 namespace Arcade.Controllers
 {
     public class GamesController : Controller
+
     {
-        // GET: Games/
-        public ActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public GamesController()
         {
-            var game = new List<Game>
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+        // GET: Games/
+        public ViewResult Index()
+        {
+            var games = _context.Games.ToList();
+            var viewmodel = new RandomGameViewModel
             
             {
-                new Game{Name = "GTA 5"},
-                new Game { Name = "RDR2" }
-
+                Games = games
 
             };
-            var viewModel = new RandomGameViewModel
-            {
-                Game = game
-            };
-            return View(viewModel);
+            
+            return View(viewmodel);
         }
         [Route("games/released/{year}/{month:regex(\\d{4})}")]
         public ActionResult ByReleaseYear(int year, int month)
         {
             return Content(year + "/" + month );
+        }
+        //Games/Details
+        public ActionResult Details(int id)
+        {
+
+            var game = _context.Games.FirstOrDefault(t => t.Id == id);
+
+            return View(game);
         }
     }
 }
