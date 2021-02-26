@@ -5,13 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using Arcade.Models;
 using Arcade.ViewModels;
+using System.Data.Entity;
 
 namespace Arcade.Controllers
 {
     public class CustomersController : Controller
     {
         private readonly ApplicationDbContext _ctx;
-        public CustomersController(ApplicationDbContext ctx)
+
+        public CustomersController()
         {
             _ctx = new ApplicationDbContext();
         }
@@ -22,27 +24,22 @@ namespace Arcade.Controllers
         }
 
         // GET: Customers
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            var customers = new List<Customer>
-            {
-                new Customer{Name="John"},
-                new Customer{Name="Mary"}
-
-            };
-            var viewModel = new IndexCustomersViewModel
+            var customers = _ctx.Customers.Include(c=>c.MembershipType).ToList();
+            var viewmodel = new IndexCustomersViewModel
             {
                 Customers = customers
             };
-            return View(viewModel);
+            return View(viewmodel);
         }
         //Customers/Details
-        //public ActionResult Details(int id)
-        //{
+        public ActionResult Details(int id)
+        {
 
-        //    var customer = _ctx.Customers.FirstOrDefault(t => t.Id == id);
+            var customer = _ctx.Customers.Include(mt=>mt.MembershipType).FirstOrDefault(t => t.Id == id);
              
-        //    return View();
-        //}
+            return View(customer);
+        }
     }
 }

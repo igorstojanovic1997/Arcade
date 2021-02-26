@@ -105,3 +105,9 @@ C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.dll
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.pdb
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.InitialModel.resources
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.csproj.GenerateResource.cache
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.IsSubscribedToCustomer.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddMembershipType.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.PopulateMembershipTypes.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.ApplzDataAnnotationsToCustomerName.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.ApplyAnnotationsToMembershipType.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddNameToMembershipType.resources
