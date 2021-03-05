@@ -9,6 +9,6 @@ namespace Arcade.ViewModels
     public class RandomGameViewModel
     {
         public List<Game> Games { get; set; }
-        
+
     }
 }

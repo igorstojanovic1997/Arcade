@@ -2,22 +2,23 @@
 
 <table class="table table-striped">
     <thead>
-    <tr>
-        <th scope="col" class="h2">Games</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var game in Model.Games)
-    {
         <tr>
-
-            <td>
-                @Html.ActionLink(game.Name, "Details", new{id=game.Id}, new {@class = "h3"})
-
-            </td>
+            <th scope="col" class="h2">Games</th>
 
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var game in Model.Games)
+        {
+            <tr>
+
+                <td>
+                    @Html.ActionLink(game.Name, "Details", new { id = game.Id }, new { @class = "h3" })
+
+                </td>
+
+            </tr>
+        }
     </tbody>
 </table>
+@Html.ActionLink("Add New Game", "New", null, new { @class = "btn btn-primary" })

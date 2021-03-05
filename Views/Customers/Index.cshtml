@@ -1,13 +1,14 @@
-﻿@model Arcade.ViewModels.IndexCustomersViewModel
+﻿@using Antlr.Runtime.Tree
+@model Arcade.ViewModels.IndexCustomersViewModel
 
 
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th scope="col" class="h2">Customers</th>
-            <th scope="col" class="h2">Membership Type</th>
+    <tr>
+        <th scope="col" class="h2">Customers</th>
+        <th scope="col" class="h2">Membership Type</th>
 
-        </tr>
+    </tr>
     </thead>
     <tbody>
     @foreach (var customer in Model.Customers)
@@ -15,14 +16,19 @@
         <tr>
 
             <td>
-                @Html.ActionLink(customer.Name, "Details", new{id=customer.Id}, new {@class = "h3"})
+                @Html.ActionLink(customer.Name, "Edit", new{id=customer.Id}, new {@class = "h3"})
 
             </td>
             <td>
                 @customer.MembershipType.Name
             </td>
+            
 
         </tr>
     }
+    
+
     </tbody>
 </table>
+
+@Html.ActionLink("Add New Customer", "New", null, new {@class="btn btn-primary"})

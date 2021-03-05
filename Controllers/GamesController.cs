@@ -48,5 +48,10 @@ namespace Arcade.Controllers
 
             return View(game);
         }
+
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }
