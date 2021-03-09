@@ -3,6 +3,31 @@
     ViewBag.Title = "GameForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (Model.Game != null && Model.Game.Id != 0)
+{
+    <h2>Edit Game</h2>
+}
+else
+{
+    <h2>New Game</h2>
+}
+@using (Html.BeginForm("Create", "Games"))
+{
+    @Html.HiddenFor(model => model.Game.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Game.Name)
+        @Html.TextBoxFor(m => m.Game.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Game.ReleaseDate)
+        @Html.TextBoxFor(m => m.Game.ReleaseDate, "{0:d MMM yyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Game.Genre)
+        @Html.DropDownListFor(m => m.Game.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+    </div>
 
-<h2>GameForm</h2>
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
 

@@ -115,3 +115,7 @@ C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddBirthDa
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.PopulateBirthDate.resources
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddGameToIdentityModel.resources
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddPropertiesToGame.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.CreateGenre.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddGenreToDb.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddGenreForeignKey.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.PopulateGenre.resources

@@ -44,14 +44,46 @@ namespace Arcade.Controllers
         public ActionResult Details(int id)
         {
 
-            var game = _context.Games.FirstOrDefault(t => t.Id == id);
+            var game = _context.Games.Include(c=>c.Genre).FirstOrDefault(t => t.Id == id);
 
             return View(game);
         }
 
         public ActionResult New()
         {
-            return View();
+            var genres = _context.Genres.ToList();
+            var viewmodel = new NewGameViewModel()
+            {
+                Genres = genres
+            };
+            return View("GameForm", viewmodel);
+        }
+        [HttpPost]
+        public ActionResult Create(Game game)
+        {
+            if (game.Id == 0)
+                _context.Games.Add(game);
+            else
+            {
+                var gameInDb = _context.Games.Single(c => c.Id == game.Id);
+                gameInDb.Name = game.Name;
+                gameInDb.GenreId = game.GenreId;
+                gameInDb.ReleaseDate = game.ReleaseDate;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Games");
+        }
+        public ActionResult Edit(int id)
+        {
+            var game = _context.Games.SingleOrDefault(c => c.Id == id);
+            if (game == null)
+                return HttpNotFound();
+            var viewModel = new NewGameViewModel
+            {
+                Game = game,
+                Genres = _context.Genres.ToList()
+            };
+            return View("GameForm", viewModel);
         }
     }
 }

@@ -9,5 +9,6 @@ namespace Arcade.ViewModels
     public class NewGameViewModel
     {
         public Game Game { get; set; }
+        public IEnumerable<Genre> Genres { get; set; }
     }
 }

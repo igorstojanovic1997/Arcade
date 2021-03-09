@@ -47,14 +47,25 @@ namespace Arcade.Controllers
             var membershipTypes = _ctx.MembershipTypes.ToList();
             var viewmodel = new NewCustomerViewModel()
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
             return View("CustomerForm",viewmodel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
 
         public ActionResult Create(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewmodel = new NewCustomerViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _ctx.MembershipTypes.ToList()
+                };
+                return View("CustomerForm",viewmodel);
+            }
             if (customer.Id==0)
                 _ctx.Customers.Add(customer);
             else
