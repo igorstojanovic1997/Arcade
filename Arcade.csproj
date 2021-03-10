@@ -237,10 +237,15 @@
     <Compile Include="Migrations\202103051223432_PopulateGenre.Designer.cs">
       <DependentUpon>202103051223432_PopulateGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103101041109_ApplyAnnotationsToGame.cs" />
+    <Compile Include="Migrations\202103101041109_ApplyAnnotationsToGame.Designer.cs">
+      <DependentUpon>202103101041109_ApplyAnnotationsToGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\GameValidation.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -480,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103051223432_PopulateGenre.resx">
       <DependentUpon>202103051223432_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103101041109_ApplyAnnotationsToGame.resx">
+      <DependentUpon>202103101041109_ApplyAnnotationsToGame.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

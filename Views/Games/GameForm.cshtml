@@ -13,20 +13,25 @@ else
 }
 @using (Html.BeginForm("Create", "Games"))
 {
-    @Html.HiddenFor(model => model.Game.Id)
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(m => m.Game.Name)
         @Html.TextBoxFor(m => m.Game.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Game.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Game.ReleaseDate)
         @Html.TextBoxFor(m => m.Game.ReleaseDate, "{0:d MMM yyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Game.ReleaseDate)
+
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Game.Genre)
         @Html.DropDownListFor(m => m.Game.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Game.GenreId)
     </div>
-
+    @Html.HiddenFor(model => model.Game.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 
 }

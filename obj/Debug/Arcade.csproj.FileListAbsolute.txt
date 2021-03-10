@@ -119,3 +119,4 @@ C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.CreateGenr
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddGenreToDb.resources
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.AddGenreForeignKey.resources
 C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.PopulateGenre.resources
+C:\Users\darko\source\repos\Arcade\Arcade\obj\Debug\Arcade.Migrations.ApplyAnnotationsToGame.resources

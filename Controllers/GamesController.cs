@@ -54,13 +54,24 @@ namespace Arcade.Controllers
             var genres = _context.Genres.ToList();
             var viewmodel = new NewGameViewModel()
             {
+                Game = new Game(),
                 Genres = genres
             };
             return View("GameForm", viewmodel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Game game)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewmodel = new NewGameViewModel
+                {
+                    Game = game,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("GameForm", viewmodel);
+            }
             if (game.Id == 0)
                 _context.Games.Add(game);
             else
