@@ -14,7 +14,7 @@ namespace Arcade.Models
             if (game.ReleaseDate == null)
                 return new ValidationResult("Release Date is required");
             var age = DateTime.Today.Year - game.ReleaseDate.Value.Year;
-            return (age < 0)
+            return (age > 0)
                 ? ValidationResult.Success
                 : new ValidationResult("You can not add unreleased game");
         }

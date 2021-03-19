@@ -1,24 +1,59 @@
 ﻿@model Arcade.ViewModels.RandomGameViewModel
 
-<table class="table table-striped">
+<table id="gamesTable" class="table table-striped">
     <thead>
         <tr>
-            <th scope="col" class="h2">Games</th>
-
+            <th>Game name</th>
+            <th>Genre name</th>
+            <th>Delete</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var game in Model.Games)
-        {
-            <tr>
-
-                <td>
-                    @Html.ActionLink(game.Name, "Edit", new { id = game.Id }, new { @class = "h3" })
-
-                </td>
-
-            </tr>
-        }
-    </tbody>
+    <tbody></tbody>
 </table>
+
 @Html.ActionLink("Add New Game", "New", null, new { @class = "btn btn-primary" })
+
+@section scripts
+{
+    <script>
+        var table = $("table#gamesTable").DataTable({
+            ajax: {
+                url: "api/games",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "Name",
+                    render: function(data, type, game) {
+                        return "<a href='/games/edit/" + game.Id + "'>" + game.Name + "</a>";
+                    }
+                },
+                {
+                    data: "GenreName"
+                },
+                {
+                    data: "Id",
+                    render: function(data) {
+                        return "<button class='btn btn-danger js-delete' data-game-id=" + data + ">Delete</button>";
+                    }
+                }
+                
+            ]
+        });
+        $("#gamesTable").on("click",
+            ".js-delete",
+            function() {
+                var button = $(this);
+                if (confirm("Are you sure you want to delete this customer?")) {
+                    $.ajax({
+                        url: "api/games/" + $(this).attr("data-game-id"),
+                        method: "DELETE",
+                        success: function() {
+                            table.row(button.parents("tr")).remove().draw();
+                            //button.parents("tr").remove();
+                        }
+                    });
+                }
+            });
+    </script>
+}

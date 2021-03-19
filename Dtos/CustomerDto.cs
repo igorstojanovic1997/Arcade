@@ -16,7 +16,7 @@ namespace Arcade.Dtos
             public string Name { get; set; }
             public bool IsSubscribedToNewsletter { get; set; }
             public byte MembershipTypeId { get; set; }
-            [Min18Years]
+            // [Min18Years]
             public DateTime? Birthdate { get; set; }
         
     }

@@ -27,26 +27,26 @@ namespace Arcade.Controllers.Api
 
         //Get api/customers/1
 
-        public CustomerDto GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
-            if (customer==null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            return Mapper.Map<Customer,CustomerDto>(customer);
+            if (customer == null)
+                return NotFound();
+            return Ok(Mapper.Map<Customer,CustomerDto>(customer));
         }
 
         //Post api/customers
         [HttpPost]
-        public CustomerDto CreateCustomer(CustomerDto customer)
+        public IHttpActionResult CreateCustomer(CustomerDto customer)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             var customerDto = Mapper.Map<CustomerDto, Customer>(customer);
             _context.Customers.Add(customerDto);
             _context.SaveChanges();
 
             customer.Id = customerDto.Id;
-            return customer;
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customer );
         }
         //Put api/customers/1
         public void UpdateCustomer(int id, CustomerDto customer)
