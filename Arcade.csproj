@@ -260,6 +260,10 @@
     <Compile Include="Migrations\202103101041109_ApplyAnnotationsToGame.Designer.cs">
       <DependentUpon>202103101041109_ApplyAnnotationsToGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103291838406_SeedUsers.cs" />
+    <Compile Include="Migrations\202103291838406_SeedUsers.Designer.cs">
+      <DependentUpon>202103291838406_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -468,6 +472,7 @@
     <Content Include="Views\Games\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Games\GameForm.cshtml" />
+    <Content Include="Views\Games\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -531,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103101041109_ApplyAnnotationsToGame.resx">
       <DependentUpon>202103101041109_ApplyAnnotationsToGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103291838406_SeedUsers.resx">
+      <DependentUpon>202103291838406_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

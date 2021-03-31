@@ -25,15 +25,11 @@ namespace Arcade.Controllers
         // GET: Games/
         public ViewResult Index()
         {
-            var games = _context.Games.ToList();
-            var viewmodel = new RandomGameViewModel
-            
-            {
-                Games = games
 
-            };
-            
-            return View(viewmodel);
+            if (User.IsInRole("CanManageGames"))
+                return View("Index");
+            else
+                return View("ReadOnlyList");
         }
         [Route("games/released/{year}/{month:regex(\\d{4})}")]
         public ActionResult ByReleaseYear(int year, int month)
@@ -48,7 +44,7 @@ namespace Arcade.Controllers
 
             return View(game);
         }
-
+        [Authorize(Roles = "CanManageGames")]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
