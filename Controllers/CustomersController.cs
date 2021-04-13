@@ -26,12 +26,16 @@ namespace Arcade.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            var customers = _ctx.Customers.Include(c=>c.MembershipType).ToList();
-            var viewmodel = new IndexCustomersViewModel
-            {
-                Customers = customers
-            };
-            return View(viewmodel);
+            //var customers = _ctx.Customers.Include(c=>c.MembershipType).ToList();
+            //var viewmodel = new IndexCustomersViewModel
+            //{
+            //    Customers = customers
+            //};
+            //return View(viewmodel);
+            if (User.IsInRole("CanManageGames"))
+                return View("Index");
+            else
+                return View("ReadOnlyList");
         }
         //Customers/Details
         public ActionResult Details(int id)

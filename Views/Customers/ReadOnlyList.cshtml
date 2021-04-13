@@ -1,0 +1,37 @@
+﻿@model Arcade.ViewModels.IndexCustomersViewModel
+
+
+    <table id="customersTable" class="table table-striped">
+
+        <thead>
+            <tr>
+                <th scope="col" class="h2">Customers</th>
+                <th scope="col" class="h2">Membership Type</th>
+            </tr>
+        </thead>
+
+    </table>
+
+
+@section scripts
+{
+    <script>
+        var table = $("table#customersTable").DataTable({
+            ajax: {
+                url: "api/customers",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "Name"
+                    
+                },
+                {
+                    data: "MembershipTypeName"
+                }
+                
+
+            ]
+        });
+    </script>
+}
